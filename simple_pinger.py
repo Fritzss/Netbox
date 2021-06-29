@@ -11,7 +11,7 @@ nb.http_session.verify = False
 # Get all Prefixes
 prefixes = nb.ipam.prefixes.all()
 # Exclude subnet iLo, on bank networks
-prefixes = [net for net in prefixes if '172.25.' not in str(net)]
+prefixes = [net for net in prefixes if 'xxx.xxx.' not in str(net)]
 # Create array all IP addresses
 addrs = ''
 for net in prefixes:
