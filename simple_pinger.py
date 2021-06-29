@@ -10,7 +10,7 @@ nb = pynetbox.api('https:/<netbox url>:443', token='<netbox token>')
 nb.http_session.verify = False
 # Get all Prefixes
 prefixes = nb.ipam.prefixes.all()
-# Exclude subnet iLo, on bank networks
+# Exclude subnet
 prefixes = [net for net in prefixes if 'xxx.xxx.' not in str(net)]
 # Create array all IP addresses
 addrs = ''
