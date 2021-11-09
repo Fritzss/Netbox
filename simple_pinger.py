@@ -6,7 +6,7 @@ import time
 from multiprocessing import Pool
 
 # connect to Netbox
-nb = pynetbox.api('https:/<netbox url>:443', token='<netbox token>')
+nb = pynetbox.api('https://<netbox url>:443', token='<netbox token>')
 nb.http_session.verify = False
 # Get all Prefixes
 prefixes = nb.ipam.prefixes.all()
