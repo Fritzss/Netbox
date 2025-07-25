@@ -4,6 +4,7 @@ import ipaddress
 from subprocess import getstatusoutput as getst
 import time
 from multiprocessing import Pool
+import os
 
 # connect to Netbox
 nb = pynetbox.api('https://<netbox url>:443', token='<netbox token>')
@@ -62,7 +63,9 @@ def pinger(addr):
 
 # start async ipscann
 if __name__ == '__main__':
-    pool = Pool(255)
+    pool_size = os.cpu_count() or 1
+    pool_size = min(pool_size * 4, 100)
+    pool = Pool(pool_size)
     pool.map(pinger, addrs)
     pool.close()
     pool.join()
