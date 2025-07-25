@@ -7,7 +7,7 @@ from multiprocessing import Pool
 import os
 
 # connect to Netbox
-nb = pynetbox.api('https://<netbox url>:443', token='<netbox token>')
+nb = pynetbox.api('https://<netbox url>:<netbox port>', token='<netbox token>')
 nb.http_session.verify = False
 # Get all Prefixes
 prefixes = nb.ipam.prefixes.all()
